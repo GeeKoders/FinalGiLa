@@ -1,0 +1,260 @@
+@charset "utf-8";
+/* 
+	CSS Document
+	Copyright (c) 2010 Spotnil (http://spotnil.com)
+	Version: 0.1 (11/15/2010)
+*/
+
+* {
+	padding: 0px;
+	margin: 0px auto;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, Geneva, Helvetica, sans-serif;
+	color: #ddd;
+	}
+	
+a {color: #28a1ff;}
+
+a:hover {
+	color: #2f628a;	}
+	
+body {
+	background-color: #33383e;
+	background-image: url(images/page_bckgrnd.png);
+	}
+	
+#wrapper {
+	width: 100%;
+	background: url(images/header.jpg) center 41px no-repeat;
+	}
+
+#social_icons {
+	height: 41px;
+	width: 960px;
+	background-image: url(images/content-dark-background.png); background-repeat: repeat;
+	display: block;
+	color: #24282c;
+	margin-bottom: 206px;
+	}
+#header {
+	display: block;
+	height: 540px;
+	background-image: url(images/header-background.png);
+	background-repeat: repeat-x;
+	background-position: center 533px;
+	z-index: 1;
+	}
+	
+#content {
+	width: 960px;
+	background-image: url(images/content-dark-background.png); background-repeat: repeat;
+	display: block;
+	color: #24282c;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, Geneva, Helvetica, sans-serif;
+	margin-top: -7px;
+	z-index: -1000;
+	margin-bottom: 0px;
+	padding-bottom: 40px;
+	}
+	
+#navigation {
+	background-color: #f5f5f5;
+	height: 50px;
+	background-image: url(images/nav-background.gif);
+	background-repeat: repeat-x;
+	background-position: center 0px;
+	text-align: center;
+	padding-top: 17px;
+	}
+	
+#navigation a {
+	background-color: #FFFFFF;
+	color: #999;
+	text-decoration: none;
+	font-size: 13px;
+	border: #ddd 2px solid;
+	display: inline-block;
+	padding: 9px 17px;
+	margin: 0px 10px;
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#navigation a:hover {
+	border: #28a1ff 2px solid;
+	color: #008dfa;
+}
+
+#content h1 {
+	margin: 30px 70px 0px 70px;
+	padding: 8px 12px 8px 50px;
+	font-size: 65px;
+	font-weight: normal;
+	letter-spacing: 1px;
+	color: #dd2200;
+	background-image: url(images/title-arrow.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 30px;
+	}
+	
+#content h2 {
+	margin: 0px 70px 0px 120px;
+	padding: 8px 12px 8px 0px;
+	font-size: 45px;
+	font-weight: normal;
+	letter-spacing: 1px;
+	color: #dd2200;
+	}
+
+
+.transformations {
+	list-style-type: none;
+	margin: 0px 90px 0px 122px;
+	font-size: 11px;
+	}
+	
+.transformations li {
+	margin: 0px 0px 0px 0px;
+	display: inline-block;
+	cursor: pointer;
+
+	-moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+	}
+	
+.transformations li a {
+	background-image: url(images/bullet-arrow.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 4px;
+	display: block;
+	padding: 0px 12px 3px 10px;
+	}
+	
+	.transformations li a:hover {
+	text-decoration: underline;
+	}
+	
+	
+#Basic_title, #Vertical_Curtain_title, #Replace_titile, #2_Sectors_title, #4_Sectors_title, #Blind_title, #Squares_title {
+	display: inline-block!important;
+	float: left;
+	margin: 0px;
+	width: 100px;
+	}
+
+.features_ul, .transitions_ul {
+	list-style-type: none;
+	margin: 15px 90px 10px 150px;
+	font-size: 11px;
+	}
+	
+.features_ul li {
+	padding: 0px 5px 3px 25px;
+	margin-top: 5px;
+	margin-bottom: 25px;
+	background-image: url(images/checkmark.gif);
+	background-repeat: no-repeat;
+	}
+	
+.features_ul li strong {
+	color: #cc3419;
+	}
+	
+.features_ul li ul li {
+	padding: 0px;
+	background-image: none;
+	margin-top: 0px;
+	}
+	
+p {
+	font-size: 13px;
+	color: #ddd;
+	margin: 5px 90px 20px 122px;
+	line-height: 1.8em;
+	}
+	
+p strong {
+	color: #FFFFFF;
+	}
+	
+p  a strong {
+	color: #28a1ff;
+	}
+	
+.transitions_ul {
+ 	margin: 20px 20px 10px 120px;
+	}
+	
+.transitions_ul .li-banner {
+	border: #373a3e solid 5px;
+	}
+	
+.transitions_ul li {
+	display: inline-block;
+	margin: 0px 40px 35px 0px;
+}
+
+.transitions_ul li, {	
+	display:inline;
+	zoom: 1;
+	float: left;
+	width: auto;
+	}
+
+.transitions_ul li {
+	color: #cc3419;
+	}
+	
+.li-slider-new-style {
+	position: absolute;
+	top: 720px;
+	margin: 0px auto;
+	text-align: center;
+	width: 960px;
+	font-size: 12px;
+	}
+.li-slider-new-style a {
+	color: #237abe;
+	text-decoration: none;
+	padding: 8px 26px 24px 26px;
+	background-image: url(images/skinn-buttons.png);
+	background-repeat: no-repeat;
+	}
+		
+.li-slider-new-style a:hover {
+	color: #237abe;
+	text-decoration: underline;
+	background-position: 0 -48px;
+	}
+
+	
+.transitions_ul li, {
+	display: block;
+	float: left;
+	width: 136px;
+	}
+	
+ul.transformations li li-banner, {
+	display: block;
+	float: left;
+	}
+
+	
+#sub-nav {
+	display: block;
+	clear: both;
+	width: 100%;
+	position: relative;
+	}
+	
+#sub-nav ul.transformations li, {
+	display: block;
+	float: left;
+	}
+
+.features_ul div.li-banner {
+	margin-left: 0px;
+	}

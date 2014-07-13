@@ -1,0 +1,137 @@
+body {
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 11px;
+	width: 726px;
+	height: auto;
+	margin: 0 auto;
+	padding: 0;
+	background-color: white;
+}
+h1 {
+	font-family: "微軟正黑體", "新細明體", "標楷體";
+	font-size: 28px;
+	color: #00C;
+}
+h2 {
+	font-family: "微軟正黑體", "新細明體", "標楷體";
+	font-size: 18px;
+	font-weight: bold;
+}
+h3 {
+	font-family: "微軟正黑體", "新細明體", "標楷體";
+	padding-left: 15px;
+	font-size: 16px;
+	font-weight: bold;
+}
+table {
+	padding-left: 30px;
+}
+table tr td {
+	vertical-align: top;
+}
+table tr td.bild {
+	width: 25%;
+	padding-top: 0;
+	padding-right: 15px;
+	padding-bottom: 15px; 
+	border-right-color: silver;
+	border-right-width: 1px;
+	border-right-style: solid;
+	vertical-align: top;
+}
+table tr td.artno {
+	width: 100px;
+	padding-right: 15px;
+	font-size: 12px;
+}
+table tr td.beschreibung {
+	width: 75%;
+	padding-top: 0;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-left: 15px;
+	vertical-align: top;
+}
+table tr td.preis {
+	text-align: right;
+}
+table tr td.beschreibung h4 {
+	margin: 0px;
+	padding: 0px 0px 15px;
+	font-size: 12px;
+	display: inline;
+}
+table tr td.beschreibung b {
+	
+}
+hr {
+	margin-top: 20px;
+}
+hr.c4s {
+	height: 1px;
+	margin-top: 0px;
+}
+table tr.reifenkombi td {
+	padding-top: 10px;
+	border-top-color: rgb(208, 208, 208);
+	border-top-width: 1px;
+	border-top-style: solid;
+}
+table tr.reifenkombititle td {
+	padding-top: 10px;
+}
+.c4sname {
+	padding-right: 20px;
+	font-weight: bold;
+}
+.c4stitle {
+	padding-right: 20px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+h2 a {
+	padding-left: 60px;	
+}
+
+li {
+	list-style: none;
+}
+li a {
+	font-family: "微軟正黑體", "新細明體", "標楷體", Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #666;
+	text-decoration: none;
+	padding-left: 0px;
+}
+li a:hover {
+	color: #000;
+	text-decoration: none;
+}
+li a:active {	
+	color: #000;
+	text-decoration: none;
+}
+table tr td.artno2 {
+	width: 35px;
+	padding-right: 15px;
+	font-size: 12px;
+}
+table tr td.beschreibung2 {
+	width: 370px;
+	padding-right: 15px;
+	padding-bottom: 0px;
+	padding-left: 15px;
+	border-bottom: 1px solid #666;
+}
+
+li.dl {
+	padding-top: 5px;
+	list-style-image: url(../images/pdf.gif);
+	list-style-type: none;
+}
+
+#under {
+	width: 50%;
+	height: 300px;
+}

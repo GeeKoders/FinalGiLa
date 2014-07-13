@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html lang="en">
+<head>
+    <title>Nivo Slider Demo</title>
+    <link rel="stylesheet" href="images/themes/default/default.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+</head>
+<body>
+    <div id="wrapper">
+<!--        
+		<a href="http://www.ty-c.com.tw" id="dev7link" title="Go to dev7studios">dev7studios</a>
+-->
+        <div class="slider-wrapper theme-default">
+        
+            <div id="slider" class="nivoSlider">
+                <a href="http://www.ty-c.com.tw"><img src="images/banner/taiyu.jpg" data-thumb="images/banner/taiyu.jpg" alt="" title="台裕集團企業大樓" data-transition="" /></a>
+                <img src="images/banner/chino.jpg" data-thumb="images/banner/chino.jpg" alt="" data-transition="slideInLeft" />
+                <img src="images/banner/espec01.jpg" data-thumb="images/banner/espec01.jpg" alt="" data-transition="slideInRight" />
+                <img src="images/banner/espec02.jpg" data-thumb="images/banner/espec02.jpg" alt="" data-transition="" />
+                <img src="images/banner/espec03.jpg" data-thumb="images/banner/espec03.jpg" alt="" data-transition="" />
+                <img src="images/banner/espec04.jpg" data-thumb="images/banner/espec04.jpg" alt="" data-transition="" />
+                <img src="images/banner/espec05.jpg" data-thumb="images/banner/espec05.jpg" alt="" data-transition="" />
+                <img src="images/banner/rkc.jpg" data-thumb="images/banner/rkc.jpg" alt="" data-transition="" />
+
+            </div>
+            
+            <div id="htmlcaption" class="nivo-html-caption">
+                <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>. 
+            </div>
+        
+        </div>
+
+    </div>
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+/*=================================*/
+/* Nivo Slider Demo
+/* November 2010
+/* By: Gilbert Pellegrom
+/* http://dev7studios.com
+/*=================================*/
+
+/*====================*/
+/*=== Reset Styles ===*/
+/*====================*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-weight:inherit;
+	font-style:inherit;
+	font-size:100%;
+	font-family:inherit;
+	vertical-align:baseline;
+}
+body {
+	line-height:1;
+	color:black;
+	background:white;
+}
+table {
+	border-collapse:separate;
+	border-spacing:0;
+}
+caption, th, td {
+	text-align:left;
+	font-weight:normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content:"";
+}
+blockquote, q {
+	quotes:"" "";
+}
+/* HTML5 tags */
+header, section, footer,
+aside, nav, article, figure {
+	display: block;
+}
+
+/*===================*/
+/*=== Main Styles ===*/
+/*===================*/
+body {
+	width: 968px;
+	margin: 0 auto;
+	padding: 0;
+	font:14px/1.6 Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;
+	color:#333;
+	background: white;
+}
+
+a, a:visited {
+	color:blue;
+	text-decoration:none;
+}
+a:hover, a:active {
+	color:#000;
+	text-decoration:none;
+}
+h2 {
+	font-family: "微軟正黑體", "新細明體", "標楷體";
+	font-size: 18px;
+	font-weight: bold;
+	color: #333;
+	margin: 0;
+	padding-left: 25px;
+}
+h2.title {
+	color: #333;
+	padding-top: 2px;
+	padding-left: 20px;
+	background-image:url(../images/title.png);
+	background-repeat: no-repeat;
+	line-height: 34px;
+}
+h2.menu {
+	color: #333;
+	padding-top: 2px;
+	padding-left: 20px;
+	background-image:url(../images/menu.png);
+	background-repeat: no-repeat;
+	line-height: 34px;
+}
+
+h3 {
+	font-family: "微軟正黑體", "新細明體", "標楷體";
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0;
+	padding-left: 25px;
+}
+
+h3.item {
+	color: black;
+	padding-top: 2px;
+	padding-left: 20px;
+	background-image:url(../images/menu.png);
+	background-repeat: no-repeat;
+	line-height: 34px;
+}
+
+p {
+	padding: 0 25px;	
+}
+#wrapper{
+	width: 968px;
+	height: 300px;  
+	margin: 0 auto;
+	padding: 0;
+	background-color: white;
+}
+
+.slider-wrapper { 
+	width: 968px; 
+	margin: 0 auto;
+}
+#news {
+	display: block;
+	width: 49%;
+	height: 240px;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	float: left;
+	background-color: white;
+}
+#prod {
+	display: block;
+	width: 49%;
+	height: 240px;
+	margin: 0;
+	padding: 0;	
+	position: relative;
+	float: right;
+	background-color: white;
+}
+#submenu {
+	display: block;
+	position: relative;
+	width: 20%;
+	height: 540px;
+	margin: 0;
+	padding: 0;
+	float: left;
+	background-color: white;
+}
+#submenu ul li {
+	display: block;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: 0;
+	font-family: "微軟正黑體", "新細明體", "標楷體";
+	font-size: 16px;
+	color: #333;
+	text-align: center;
+	list-style: none;
+}
+#submenu ul li a {
+	color: #999;
+	font-weight: bold;
+	text-decoration: none;
+}
+#submenu ul li a:hover {
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+}
+#submenu ul li a:active {	
+	color: #000;
+	text-decoration: none;
+}
+
+#content {
+	display: block;
+	position: relative;
+	width: 80%;
+	height: 540px;
+	margin: 0;
+	padding: 0;	
+	top: 0;
+	right: 0;
+	float: right;
+	background-color: white;
+}
+#footer {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 50px;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: 0;
+	float: left;
+}
+#footer ul li {
+	padding-left: 20px;	
+	list-style: none;
+	font-size: 10px;
+}
+#footer ul li a {
+	text-decoration: none;
+}
+
+#footer ul li a:hover {
+	color: #333;
+	text-decoration: none;
+}
+#footer ul li a:active {
+	color: #333;
+	text-decoration: none;
+	
+}
+#about_data {
+	clear: both;
+	display: block;
+	position: relative;	
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: 0;
+	background-color: white;
+}
+#about_data ul li {
+	padding-left: 20px;	
+	list-style: none;
+	font-size: 10px;
+}
+#about_data ul li a {
+	text-decoration: none;
+}
+
+#about_data ul li a:hover {
+	color: #333;
+	text-decoration: none;
+}
+#about_data ul li a:active {
+	color: #333;
+	text-decoration: none;
+	
+}
+
+#news_data {
+	clear: both;
+	display: block;
+	position: relative;	
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: 0;
+	background-color: white;
+}
+#news ul {
+	padding-left: 25px;	
+}
+#news ul li a {
+	font-size: 16px;
+}
+
+#prod ul {
+	padding-left: 25px;	
+}
+#prod ul li a {
+	font-size: 16px;
+}
+
+
+#products_data {
+	clear: both;
+	display: block;
+	position: relative;	
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: 0;
+	background-color: white;
+}
+
+.accordion2 {
+	width: 100%;
+}
+.accordion2 h3 {
+	background: #eee url(../images/arrow-square.gif) no-repeat right -53px; 
+	padding: 3px 15px 5px 15px;
+	margin: 0px;
+	font: bold 120%/100% Arial, Helvetica, sans-serif, "微軟正黑體", "新細明體", "標楷體";
+	cursor: pointer;
+	color: #999;
+}
+.accordion2 h3:hover {
+	background-color: #ddd;
+	color: #666;
+}
+.accordion2 h3.active {
+	background-position: right 5px; 
+	color: black;
+}
+.accordion2 span {
+	display: none;
+	width: 95%;
+	margin: 0px;
+	padding: 2px 15px 2px 0px;
+	background-color: #f7f7f7;
+	float: right;
+	font-size: 14px;
+	letter-spacing: 0px;
+	text-align: right;
+}
+.accordion2 span ul li a {
+	display: block;
+	width: 95%;
+	margin: 0px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	list-style: none;
+	font-size: 14px;
+	color: #999;
+	letter-spacing: 0px;
+	text-align: right;
+	text-decoration: none;
+ 	outline: none;
+}
+.accordion2 span ul li a:hover {
+	display:block;
+	color: #666;
+	text-decoration: none;
+	outline: none;
+}
+.accordion2 span ul li a:active {
+	display: block;
+	color: #black;
+	text-decoration: none;
+	outline: none;
+}
+.accordion2 a {
+	text-decoration: none;
+	outline: none;
+	color: black;
+}
+.accordion2 a:hover {
+	text-decoration: none;
+	outline: none;
+	color: black;
+}
+.accordion2 a::active {
+	text-decoration: none;
+	outline: none;
+	color: black;
+}
+hr {
+	color: #f7f7f7;
+	margin: 0px;
+	padding: 0px;
+}
+.more {
+	padding-right: 25px;
+	text-align: right;
+	color: #999;	
+}
+#contact {
+	display: block;
+	width: 69%;
+	height: 540px;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	float: left;
+	background-color: white;
+}
+#remark {
+	display: block;
+	width: 29%;
+	height: 540px;
+	margin: 0;
+	padding: 0;	
+	position: relative;
+	float: right;
+	background-color: white;
+}
+.logo {
+	padding-left: 25px;	
+}
+
+/*====================*/
+/*=== Other Styles ===*/
+/*====================*/
+.clear {
+	clear:both;
+}

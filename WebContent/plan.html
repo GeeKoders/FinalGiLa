@@ -1,0 +1,253 @@
+<%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>gIRA Home</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection"/>
+    <link rel="stylesheet" type="text/css" href="css/easyui.css">
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+    <script type="text/javascript">
+		$(function(){
+			
+			$('.drag').draggable({
+				proxy:'clone',
+				revert:true,
+				cursor:'auto',
+				onStartDrag:function(){
+					$(this).draggable('options').cursor='not-allowed';
+					$(this).draggable('proxy').addClass('dp');
+				},
+				onStopDrag:function(){
+					$(this).draggable('options').cursor='auto';
+				}
+			});
+			$('#target').droppable({
+				// 依會員選擇條件帶入「景點編號」
+				accept:'#d1,#d2,#d3,#d4,#d5,#d6,#d7,#d8',
+				onDragEnter:function(e,source){
+					$(source).draggable('options').cursor='auto';
+					$(source).draggable('proxy').css('border','1px solid red');
+					$(this).addClass('over');
+				},
+				onDragLeave:function(e,source){
+					$(source).draggable('options').cursor='not-allowed';
+					$(source).draggable('proxy').css('border','1px solid #ccc');
+					$(this).removeClass('over');
+				},
+				onDrop:function(e,source){
+					$(this).append(source);
+					$(this).removeClass('over');
+				}
+			});
+			$('#source').droppable({
+				// 依會員選擇條件帶入「景點編號」
+				accept:'#d1,#d2,#d3,#d4,#d5,#d6,#d7,#d8',
+				onDragEnter:function(e,source){
+					$(source).draggable('options').cursor='auto';
+					$(source).draggable('proxy').css('border','1px solid red');
+					$(this).addClass('over');
+				},
+				onDragLeave:function(e,source){
+					$(source).draggable('options').cursor='not-allowed';
+					$(source).draggable('proxy').css('border','1px solid #ccc');
+					$(this).removeClass('over');
+				},
+				onDrop:function(e,source){
+					$(this).append(source)
+					$(this).removeClass('over');
+				}
+			});
+			
+			$('#showmap').hover(function(){
+				$(this).attr('src','images/btn/btn7_on.png');
+				$(this).click(function(){
+
+					showMap();
+
+				});
+			}, function(){
+				$(this).attr('src','images/btn/btn7.png');
+			});
+			
+			$('#doSearch').hover(function(){
+				$(this).attr('src','images/btn/btn8_on.png');
+			}, function(){
+				$(this).attr('src','images/btn/btn8.png');
+			});
+		
+			$('#package').focus(function(){
+				$(this).attr('value','');
+			});
+			
+			$('#vp_list').hover(function(){
+				$(this).attr('src','images/btn/btn9_on.png');
+				$(this).click(function(){
+					var vp='';
+					var package='';
+					package = $('#package').val();
+					$('#target div.drag').map(function() {
+						vp += this.id+', ';
+						return vp;
+					});
+					$('#vp').val(vp);
+					//alert('景點名稱: '+package+'<br>'+'景點排序: '+vp);
+				});
+			}, function(){
+				$(this).attr('src','images/btn/btn9.png');
+			});
+				
+						
+		//			$('#login_func').click(function(e) {
+		// 				$('#apDiv1').css('visibility','visible');
+		//          });
+		
+			$("li a").click(function(){
+				$("li a").removeClass("active");
+				$(this).toggleClass("active");
+			});
+		
+			$("li a").click(function(){
+				$("li a").css("color","#666");
+				$("li a.active").css("color","white");
+			});
+		
+			$("li a").hover(function(){
+					$("li a.active").css("color","white");
+					$(this).css("color","black");
+				},function(){
+					$(this).css("color","#666");
+					$("li a.active").css("color","white");
+			})
+		
+		});
+    
+    </script>
+</head>
+
+<body>
+	<!--<div class="result"></div>-->
+	<div id="header-wrapper">
+    	<div id="title">
+            <img src="images/Logo-02.gif" name="logo" id="logo" /> &nbsp;&nbsp;
+
+            <div id="login">
+            	<span> 嗨!Bob 歡迎來到Gira旅遊網
+	<form method="post" action="Logout">
+		<input type="submit" value="登出" name="Logout"></span>
+           </form> </div>
+            <div id="menu">
+                <ul>
+                    <li id='btn1'><a href="home.html"></a></li>
+                    <li id='btn2'><a href="viewpoint.jsp"></a></li>
+                    <li id='btn3'><a href="plan.jsp"></a></li>
+                    <li id='btn4'><a href="cust.jsp"></a></li>
+                    <li id='btn5'><a href="package.jsp"></a></li>
+                    <li id='btn6'><a href="#"></a></li>
+                </ul>  
+            </div>
+   	  	</div>
+	</div>
+  
+	<div id="page-wrap">
+   	  	<div id='sel_viewpoint'>
+            <div class="lp">
+            	<form name="form1" action="Controller" method="post">
+                  	<select name="area" class="seldata">
+                                <option value="null">::請選擇區域::</option>
+                                <option value="士林區">士林區</option>
+                                <option value="大同區">大同區</option>
+                                <option value="大安區">大安區</option>
+                                <option value="中山區">中山區</option>
+                                <option value="中正區">中正區</option>
+                                <option value="內湖區">內湖區</option>
+                                <option value="文山區">文山區</option>
+                                <option value="北投區">北投區</option>
+                                <option value="松山區">松山區</option>
+                                <option value="信義區">信義區</option>
+                                <option value="南港區">南港區</option>
+                                <option value="萬華區">萬華區</option>
+                  	</select>
+                  	<input name="desMatch" type="text" class="setdata" value="" size="30" />
+                  	<button type="submit" class="btn1"><img id="doSearch"src="images/btn/btn8.png" /></button>
+              	</form>
+            </div>
+            <img id="showmap" src="images/btn/btn7.png" class="btn2" />
+            <div class="lp">
+                <form name="form2" action="show_vplist.php" method="post">
+                	<input id="package" name="package" type="text" class="setdata" value="請輸入行程名稱..." size="35" />
+                	<input id='vp' name="vp" type="hidden" />                    
+                    <button type="submit" class="btn1"><img id="vp_list" src="images/btn/btn9.png" class="btn" /></button>
+            	</form>
+            </div>
+    	</div> 
+    </div>
+	
+	<div id="content">	</div>
+        
+  	<div id="google_map">
+		<iframe width="966" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=""></iframe>
+    </div>
+    
+    <!-- 景點購物車操作區塊 -->               
+    <div id="cart">
+       	<!-- 依會員選擇條件帶入「景點項目」 -->
+        <div id="source"> 
+<!--        
+            <div id="d1" class="drag">
+                <img src="images/item/1.jpg" width="160" />
+            	<p>景點 1</p>
+            </div>
+            
+            <div id="d2" class="drag">
+                <img src="images/item/2.jpg" width="160" />
+            	<p>景點 2</p>
+            </div>
+            <div id="d3" class="drag">
+                <img src="images/item/3.jpg" width="160" />
+            	<p>景點 3</p>
+            </div>
+            <div id="d4" class="drag">
+                <img src="images/item/4.jpg" width="160" />
+            	<p>景點 4</p>
+            </div>
+            <div id="d5" class="drag">
+                <img src="images/item/5.jpg" width="160" />
+            	<p>景點 5</p>
+            </div>
+            <div id="d6" class="drag">
+                <img src="images/item/6.jpg" width="160" />
+            	<p>景點 6</p>
+            </div>
+            <div id="d7" class="drag">
+                <img src="images/item/7.jpg" width="160" />
+            	<p>景點 7</p>
+            </div>
+            <div id="d8" class="drag">
+                <img src="images/item/8.jpg" width="160" />
+            	<p>景點 8</p>
+            </div>
+-->        
+        </div>
+            
+   		<div id="plan">
+        	<!-- 依會員輸入帶入「行程名稱」 -->
+<!--       	<div id="plan_title">
+            	<h2>行程名稱：台北一日遊</h2>
+            </div>-->
+        	<!-- 景點購物車 -->
+            <div id="target"> </div>
+        </div>
+            
+    </div>
+    
+    <div id="footer"> </div>
+<!--	
+    <div id="apDiv1">
+    	<iframe src="#" width="500" height="500" frameborder="5" id="show_func"></iframe>
+    </div>
+-->
+</body>
+
+</html>

@@ -1,0 +1,763 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>gIRA Home</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection"/>
+    <link rel="stylesheet" type="text/css" href="css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="css/icon.css">
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="js/AddressSelectList.js"></script>
+    <style type="text/css">
+        .drag{
+            width:160px;
+            height:200px;
+            padding:10px;
+            margin:10px;
+            border:1px solid #ccc;
+            /*background:#AACCFF;*/
+			background-image: url(images/item/photo_bg.gif);
+			background-repeat: no-repeat;
+			background-position: top center;
+			float: left;
+        }
+        .dp{
+            opacity:0.5;
+            filter:alpha(opacity=50);
+        }
+        .over{
+            /*background:#FBEC88;*/
+			/*background-image: url(images/notes.gif);*/
+			/*background-repeat: no-repeat;*/
+        }
+		#tt {
+			position: relative;
+			top: -35px;
+			left: 368px;
+			padding: 0;
+			margin: 0;
+			z-index: 1000000;
+		}
+		#apDiv1 {
+			position: absolute;
+			left: 300px;
+			top: 126px;
+			width: 500px;
+			height: 500px;
+			z-index: 1000001;
+			visibility: hidden;
+		}
+		#login_func {
+			
+		}
+    </style>
+    <script type="text/javascript">
+//      var ary=new Array(8);
+//		var tCnt = 0;
+//		var sCnt = 8;
+        $(function(){
+    		$('.drag').draggable({
+                proxy:'clone',
+                revert:true,
+                cursor:'auto',
+                onStartDrag:function(){
+                    $(this).draggable('options').cursor='not-allowed';
+                    $(this).draggable('proxy').addClass('dp');
+                },
+                onStopDrag:function(){
+                    $(this).draggable('options').cursor='auto';
+                }
+            });
+            $('#target').droppable({
+				// 依會員選擇條件帶入「景點編號」
+                accept:'#d1,#d2,#d3,#d4,#d5,#d6,#d7,#d8',
+                onDragEnter:function(e,source){
+                    $(source).draggable('options').cursor='auto';
+                    $(source).draggable('proxy').css('border','1px solid red');
+                    $(this).addClass('over');
+                },
+                onDragLeave:function(e,source){
+                    $(source).draggable('options').cursor='not-allowed';
+                    $(source).draggable('proxy').css('border','1px solid #ccc');
+                    $(this).removeClass('over');
+                },
+                onDrop:function(e,source){
+                    $(this).append(source);
+                    $(this).removeClass('over');
+					// 取得來源 tag 及 id 名稱 
+//					var t = source;
+//					ary[tCnt] = t.id;					
+//					tCnt++;
+//					sCnt--;
+//					alert(t.tagName + ' ' + t.id);
+                }
+            });
+            $('#source').droppable({
+				// 依會員選擇條件帶入「景點編號」
+                accept:'#d1,#d2,#d3,#d4,#d5,#d6,#d7,#d8',
+                onDragEnter:function(e,source){
+                    $(source).draggable('options').cursor='auto';
+                    $(source).draggable('proxy').css('border','1px solid red');
+                    $(this).addClass('over');
+                },
+                onDragLeave:function(e,source){
+                    $(source).draggable('options').cursor='not-allowed';
+                    $(source).draggable('proxy').css('border','1px solid #ccc');
+                    $(this).removeClass('over');
+                },
+                onDrop:function(e,source){
+                    $(this).append(source)
+                    $(this).removeClass('over');
+
+//					var S = source;
+//					ary[tCnt]='';
+//					tCnt--;
+//					sCnt++;
+//					alert(S.tagName + ' ' + S.id);
+
+                }
+            });
+			
+			$('#vp').click(function(){				
+				var vp='';
+				$('#target div.drag').map(function() {
+					vp += this.id+', ';
+				  	return vp;
+				});		
+				alert('景點排序: '+vp);
+			});
+
+			$('#showmap').hover(function(){
+				$(this).attr('src','images/btn/btn7_on.png');
+				$(this).click(function(){
+					// window.location.assign("http://tw.yahoo.com");
+					// showMap();
+					alert('執行 showMap()');
+				});
+			}, function(){
+				$(this).attr('src','images/btn/btn7.png');
+			});
+
+//			$('#login_func').click(function(e) {
+// 				$('#apDiv1').css('visibility','visible');
+//          });
+			
+			$("li a").click(function(){
+				$("li a").removeClass("active");
+				$(this).toggleClass("active");
+			});
+		
+			$("li a").click(function(){
+				$("li a").css("color","#666");
+				$("li a.active").css("color","white");
+			});
+	
+			$("li a").hover(function(){
+					$("li a.active").css("color","white");
+					$(this).css("color","black");
+				},function(){
+					$(this).css("color","#666");
+					$("li a.active").css("color","white");
+			})
+
+        });
+    </script>
+	<script type="text/javascript">
+		window.onload = function () {
+	
+			//當頁面載完之後，用AddressSeleclList.Initialize()，
+			//傳入要綁定的縣市下拉選單ID及鄉鎮市區下拉選單ID
+			AddressSeleclList.Initialize('縣市1', '鄉鎮市區1');
+	   }
+	
+	   function show() {
+			//取出指定縣市及鄉鎮市區的下拉選單的值
+		//	alert(AddressSeleclList.ReturnSelectAddress('縣市1', '鄉鎮市區1'));
+			
+			var adr = (AddressSeleclList.ReturnSelectAddress('縣市1', '鄉鎮市區1'));
+			return adr;
+	   }
+	   
+	   function doSearch(value){
+            alert( show() + ", " + value );
+       }
+	   
+    </script>
+    </head>
+    <body >
+                 
+	<!--<div class="result"></div>-->
+	<div id="header-wrapper">
+    	<div id="title">
+            <img src="images/gira.gif" name="logo" width="200" height="100" id="logo" /> &nbsp;&nbsp;
+            <!--<a href="login.html">login</a>-->
+            <div id="login">
+            	<span>Hi Bob&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">登出</a></span>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li id='btn1'><a href="home.html"></a></li>
+                    <li id='btn2'><a href="viewpoint.html"></a></li>
+                    <li id='btn3'><a href="plan.html"></a></li>
+                    <li id='btn4'><a href="cust.html"></a></li>
+                    <li id='btn5'><a href="package.html"></a></li>
+                    <li id='btn6'><a href="contact.html"></a></li>
+                </ul>  
+            </div>
+   	  	</div>
+	</div>
+  
+	<div id="page-wrap">
+        <div id='sel_viewpoint1'>
+            <span>
+<!--                <select id="縣市1" class="search"> </select>&nbsp;&nbsp;
+            <select id="鄉鎮市區1" class="search"> </select>&nbsp;&nbsp;
+-->
+<form action="Controller" method="post">
+    <select name="area" >
+                <option value="null"><--請選擇區域--></option>
+                <option value="士林區">士林區</option>
+                <option value="大同區">大同區</option>
+                <option value="大安區">大安區</option>
+                <option value="中山區">中山區</option>
+                <option value="中正區">中正區</option>
+                <option value="內湖區">內湖區</option>
+                <option value="文山區">文山區</option>
+                <option value="北投區">北投區</option>
+                <option value="松山區">松山區</option>
+                <option value="信義區">信義區</option>
+                <option value="南港區">南港區</option>
+                <option value="萬華區">萬華區</option>
+                </select>
+            <input name="desMatch" class="easyui-searchbox" data-options="prompt:' 請輸入...',searcher:doSearch" 
+                style="	float: left;
+                        width: 250px;
+                        height: 30px;
+                        margin: 10px 10px 0px 0px;
+                        padding-left: 10px;
+                        color: #888888; "></input></span>
+            &nbsp;&nbsp;
+            </form>
+            <span><img id="showmap" src="images/btn/btn7.png" onclick="showMap()" /></span>
+        </div> 
+    </div>
+	
+	<div id="content">
+
+            <div id='sel_viewpoint'>
+                <p><select id="縣市1" class="search"> </select>&nbsp;&nbsp;
+                <select id="鄉鎮市區1" class="search"> </select>&nbsp;&nbsp;
+                <input class="easyui-searchbox" data-options="prompt:' 請輸入...',searcher:doSearch" 
+                    style="	float: left;
+                            width: 250px;
+                            height: 30px;
+                            margin: 10px 10px 0px 0px;
+                            padding-left: 10px;
+                            color: #888888; "></input></p>
+                <!--<input type="button" onclick="doSearch(value)" value="顯示" />-->
+            </div>        
+        </div>
+  	</div>
+        
+  	<div id="google_map">
+        <iframe width="966" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=""></iframe>
+       
+    </div>
+    
+    <!-- 景點購物車操作區塊 -->               
+    <div id="cart">
+       	<!-- 依會員選擇條件帶入「景點項目」 -->
+        <div id="source">
+            <div id="C1_379000000A_000224" class="drag" >
+                <img src="images/item/T0122.jpg" width="160" >
+            </div>
+        </div>
+            
+   		<div id="plan">
+        	<!-- 依會員輸入帶入「行程名稱」 -->
+       	  	<div id="plan_title">
+            	<h2>行程名稱：台北一日遊</h2>
+            </div>
+        	<!-- 景點購物車 -->
+            <div id="target"> </div>
+        </div>
+            
+    </div>
+    
+    <div id="footer"> </div>
+
+
+      
+                       
+	</body> 
+
+</html>
+ <!--                      
+          <script type="text/javascript">
+
+        var map;
+        //將Array資料從JSP中塞入至JS
+
+
+        var myIcon = new Array(arr.length);
+        //建立myIcon的物件陣列
+        for (var i = 0; i < myIcon.length; i++)
+        {
+            myIcon[i] = new Array();
+        }
+        //創建一個自定義的GIcon	
+        for (var i = 0; i < myIcon.length; i++)
+        {
+            myIcon[i] = new GIcon();
+        }
+        //建立前景圖片
+        for (var i = 0; i < myIcon.length; i++)
+        {
+            myIcon[i].image = '0' + (i + 1) + '.jpg';
+        }
+        //前景圖片大小，長x寬
+        for (var i = 0; i < myIcon.length; i++)
+        {
+            myIcon[i].iconSize = new GSize(48, 80);
+        }
+
+        //陰影圖片大小，長x寬
+        //myIcon.shadowSize = new GSize(12, 20);
+
+        //以下兩個屬性很難解釋，讀者可自行調整其數值以便理解其意義
+        // myIcon錨定點相對於myIcon圖片左上角的像素距離
+        //    for (var i = 0; i < arr.length; i++)
+        //    {
+        //        for (var j = 0; j < 1; j++)
+        //        {
+        //            myIcon[i].iconAnchor = new GLatLng(arr[i][j], arr[i][j + 1]);
+        //        }
+        //    }
+
+
+        //初始化GM地圖
+        function initialize() {
+            if (GBrowserIsCompatible()) {
+                map = new GMap2(document.getElementById("google_map"));
+                map.addControl(new GSmallMapControl());
+                map.addControl(new GMapTypeControl());
+
+                map.setCenter(new GLatLng(25.107984, 121.558807), 11);
+            }
+        }
+        function showMap() {
+
+
+
+
+            var arr = new Array(null);
+            //利用二維陣列建立座標
+            var geoPoint = new Array(arr.length);
+
+            for (var i = 0; i < geoPoint.length; i++)
+            {
+                geoPoint[i] = new Array();
+            }
+            //創建另一個地理坐標geoPoint
+            for (var i = 0; i < geoPoint.length; i++)
+            {
+                var j = 0;
+                geoPoint[i] = new GLatLng(arr[i][j], arr[i][j + 1]);
+
+
+            }
+
+
+            //設定map的中心位置和scale
+            // map.setCenter(new GLatLng(25.107984, 121.558807), 5);
+            //利用使用者所選取的地方進行比對，並且動態設定位置
+            switch ("null")
+            {
+                case "士林區":
+                    map.setCenter(new GLatLng(25.130677, 121.547386), 13);
+                    break;
+                case "大同區":
+                    map.setCenter(new GLatLng(25.063131, 121.516415), 14);
+                    break;
+                case "大安區":
+                    map.setCenter(new GLatLng(25.033194, 121.543709), 14);
+                    break;
+                case "中山區":
+                    map.setCenter(new GLatLng(25.068263, 121.533237), 14);
+                    break;
+                case "中正區":
+                    map.setCenter(new GLatLng(25.04136, 121.515134), 15);
+                    break;
+                case "內湖區":
+                    map.setCenter(new GLatLng(25.083811, 121.594263), 14);
+                    break;
+                case "文山區":
+                    map.setCenter(new GLatLng(24.977811, 121.589443), 14);
+                    break;
+                case "北投區":
+                    map.setCenter(new GLatLng(25.14342, 121.520019), 14);
+                    break;
+                case "松山區":
+                    map.setCenter(new GLatLng(25.054657, 121.570145), 14);
+                    break;
+                case "信義區":
+                    map.setCenter(new GLatLng(25.032261, 121.571432), 14);
+                    break;
+                case "南港區":
+                    map.setCenter(new GLatLng(25.036305, 121.621544), 14);
+                    break;
+                case "萬華區":
+                    map.setCenter(new GLatLng(25.029462, 121.5005), 14);
+                    break;
+            }
+
+            //var marker0 = new GMarker(geoPoint[0], {title: "我有titile了"});
+
+            //建立自行定義的GMarker
+            var marker = new Array(geoPoint.length);
+            //建立自行定義的GMarker物件陣列
+            for (var i = 0; i < marker.length; i++)
+            {
+                marker[i] = new Array();
+            }
+            for (var i = 0; i < marker.length; i++)
+            {
+
+                marker[i] = new GMarker(geoPoint[i]);
+
+                //				marker[i]=new GMarker(geoPoint[i],{icon:myIcon[i]}) ; 
+            }
+
+
+            //顯示自定義了圖標的地標對象marker1
+            //		var html = "台南火車<hr>站";
+            //        map.openInfoWindowHtml(map.getCenter(), html); //顯示對話框及文字
+            //		
+
+            //var marker1 = new GMarker(geoPoint[1],//創建自定義的GMarker
+            //                       {icon: myIcon[0],
+            //                       title: "把鼠標移上來，看看有什麼"});
+            //var marker2 = new GMarker(geoPoint[1],//創建自定義的GMarker
+            //                      {icon: myIcon[1],
+            //                      title: "把鼠標移上來，看看有什麼"});						 		//document.write(3) ;
+            //map.addOverlay(marker0);
+            //顯示自定義了圖標的地標對象marker1
+            for (var i = 0; i < marker.length; i++)
+            {
+                map.addOverlay(marker[i]);
+
+            }
+
+            //將圖(picStr),景點名稱(viewStr)和簡介(viewIntroStr)利用GM觸發事件(Mouseover)將資料從InfoWindowHtml秀出
+            //<div id="display" width=400 height=400></div>
+            GEvent.addListener(marker[0], "mouseover", function() {
+                marker[0].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[1], "mouseover", function() {
+                marker[1].openInfoWindowHtml('<div id="infoWindo"></div>');
+
+            });
+            GEvent.addListener(marker[2], "mouseover", function() {
+                marker[2].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+
+            GEvent.addListener(marker[3], "mouseover", function() {
+                marker[3].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[4], "mouseover", function() {
+                marker[4].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[5], "mouseover", function() {
+                marker[5].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[6], "mouseover", function() {
+                marker[6].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[7], "mouseover", function() {
+                marker[7].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[8], "mouseover", function() {
+                marker[8].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[9], "mouseover", function() {
+                marker[9].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[10], "mouseover", function() {
+                marker[10].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[11], "mouseover", function() {
+                marker[11].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[12], "mouseover", function() {
+                marker[12].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[13], "mouseover", function() {
+                marker[13].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[14], "mouseover", function() {
+                marker[14].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[15], "mouseover", function() {
+                marker[15].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[16], "mouseover", function() {
+                marker[16].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[17], "mouseover", function() {
+                marker[17].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[18], "mouseover", function() {
+                marker[18].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[19], "mouseover", function() {
+                marker[19].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[20], "mouseover", function() {
+                marker[20].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[21], "mouseover", function() {
+                marker[21].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[22], "mouseover", function() {
+                marker[22].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[23], "mouseover", function() {
+                marker[23].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[24], "mouseover", function() {
+                marker[24].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[25], "mouseover", function() {
+                marker[25].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[26], "mouseover", function() {
+                marker[26].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[27], "mouseover", function() {
+                marker[27].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[28], "mouseover", function() {
+                marker[28].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[29], "mouseover", function() {
+                marker[29].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[30], "mouseover", function() {
+                marker[30].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[31], "mouseover", function() {
+                marker[31].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[32], "mouseover", function() {
+                marker[32].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[33], "mouseover", function() {
+                marker[33].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[34], "mouseover", function() {
+                marker[34].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[35], "mouseover", function() {
+                marker[35].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[36], "mouseover", function() {
+                marker[36].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[37], "mouseover", function() {
+                marker[37].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[38], "mouseover", function() {
+                marker[38].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[39], "mouseover", function() {
+                marker[39].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+            GEvent.addListener(marker[40], "mouseover", function() {
+                marker[40].openInfoWindowHtml('<div id="infoWindo"></div>')
+            });
+
+            GEvent.addListener(marker[41], "mouseover", function() {
+                marker[41].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[42], "mouseover", function() {
+                marker[42].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[43], "mouseover", function() {
+                marker[43].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[44], "mouseover", function() {
+                marker[44].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[45], "mouseover", function() {
+                marker[45].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[46], "mouseover", function() {
+                marker[46].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[47], "mouseover", function() {
+                marker[47].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[48], "mouseover", function() {
+                marker[48].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[49], "mouseover", function() {
+                marker[49].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[50], "mouseover", function() {
+                marker[50].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[51], "mouseover", function() {
+                marker[51].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[52], "mouseover", function() {
+                marker[52].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[53], "mouseover", function() {
+                marker[53].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[54], "mouseover", function() {
+                marker[54].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[55], "mouseover", function() {
+                marker[55].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[56], "mouseover", function() {
+                marker[56].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[57], "mouseover", function() {
+                marker[57].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[58], "mouseover", function() {
+                marker[58].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[59], "mouseover", function() {
+                marker[59].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[60], "mouseover", function() {
+                marker[60].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[61], "mouseover", function() {
+                marker[61].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[62], "mouseover", function() {
+                marker[62].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[63], "mouseover", function() {
+                marker[63].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[64], "mouseover", function() {
+                marker[64].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[65], "mouseover", function() {
+                marker[65].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[66], "mouseover", function() {
+                marker[66].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[67], "mouseover", function() {
+                marker[67].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[68], "mouseover", function() {
+                marker[68].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[69], "mouseover", function() {
+                marker[69].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[70], "mouseover", function() {
+                marker[70].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[71], "mouseover", function() {
+                marker[71].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[72], "mouseover", function() {
+                marker[72].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[73], "mouseover", function() {
+                marker[73].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[74], "mouseover", function() {
+                marker[74].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[75], "mouseover", function() {
+                marker[75].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[76], "mouseover", function() {
+                marker[76].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[77], "mouseover", function() {
+                marker[77].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[78], "mouseover", function() {
+                marker[78].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[79], "mouseover", function() {
+                marker[79].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[80], "mouseover", function() {
+                marker[80].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[81], "mouseover", function() {
+                marker[81].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[82], "mouseover", function() {
+                marker[82].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[83], "mouseover", function() {
+                marker[83].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[84], "mouseover", function() {
+                marker[84].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[85], "mouseover", function() {
+                marker[85].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[86], "mouseover", function() {
+                marker[86].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[87], "mouseover", function() {
+                marker[87].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[88], "mouseover", function() {
+                marker[88].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[89], "mouseover", function() {
+                marker[89].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[90], "mouseover", function() {
+                marker[90].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[91], "mouseover", function() {
+                marker[91].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[92], "mouseover", function() {
+                marker[92].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[93], "mouseover", function() {
+                marker[93].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[94], "mouseover", function() {
+                marker[94].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[95], "mouseover", function() {
+                marker[95].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[96], "mouseover", function() {
+                marker[96].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[97], "mouseover", function() {
+                marker[97].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[98], "mouseover", function() {
+                marker[98].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[99], "mouseover", function() {
+                marker[99].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+            GEvent.addListener(marker[100], "mouseover", function() {
+                marker[100].openInfoWindowHtml('<div id="infoWindo"></div>');
+            });
+
+        }
+                        </script>-->

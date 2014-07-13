@@ -1,0 +1,195 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>gIRA Home</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection"/>
+    <link rel="stylesheet" type="text/css" href="css/nivo-slider.css">
+    <link rel="stylesheet" href="images/themes/default/default.css" type="text/css" />
+    
+    <style type="text/css">
+		#wrapper{
+			position: relative;
+			width: 968px;
+			height: 300px;  
+			margin: 0 auto;
+			padding: 0;
+			top: 0;		/* 20px  */
+			left: 0;
+			background-color: white;
+		}
+		.slider-wrapper { 
+			width: 968px; 
+			margin: 0 auto;
+		}
+		#news {
+			position: relative;
+			display: block;
+			width: 49%;
+			height: 280px;
+			margin: 0 auto;
+			padding: 0;
+			top: 0;
+			left: 0;
+			float: left;
+			background-color: white;
+			background-image: url(images/item/tab_list_009.gif);
+			background-repeat: no-repeat;
+			background-position: center right;
+		}
+		#hot {
+			position: relative;
+			display: block;
+			width: 49%;
+			height: 280px;
+			margin: 0 auto;
+			padding: 0;
+			top: 0;
+			left: 0;
+			float: right;
+			background-color: white;
+			background-image: url(images/item/tab_list_009.gif);
+			background-repeat: no-repeat;
+			background-position: center right;
+		}
+		h2 {
+			font-family: "微軟正黑體", "新細明體", "標楷體";
+			font-size: 18px;
+			color: #333;
+			margin: 0;
+			padding-left: 25px;
+		}
+		h2.title {
+			color: black;
+			padding-top: 2px;
+			padding-left: 20px;
+			background-image:url(images/title.png);
+			background-repeat: no-repeat;
+			line-height: 34px;
+		}
+		h3 {
+			font-family: "微軟正黑體", "新細明體", "標楷體";
+			font-size: 16px;
+			color: #333;
+			margin: 0;
+			padding-top: 2px;
+			padding-left: 20px;
+			background-image: url(images/flower.gif);
+			background-repeat: no-repeat;
+			background-position: left center;
+			line-height: 30px;
+		}
+		.more {
+			position: relative;
+			padding-top: 0px;
+			padding-right: 70px;	
+			text-align: right;
+			color: #999;	
+		}
+
+    </style>
+    
+    <script type="text/javascript">
+        $(function(){
+			
+			$("li a").click(function(){
+				$("li a").removeClass("active");
+				$(this).toggleClass("active");
+			});
+		
+			$("li a").click(function(){
+				$("li a").css("color","#666");
+				$("li a.active").css("color","white");
+			});
+	
+			$("li a").hover(function(){
+					$("li a.active").css("color","white");
+					$(this).css("color","black");
+				},function(){
+					$(this).css("color","#666");
+					$("li a.active").css("color","white");
+			})
+
+        });
+    </script>
+    
+</head>
+
+<body>
+	<!--<div class="result"></div>-->
+	<div id="header-wrapper">
+    	<div id="title">
+            <img src="images/Logo-02.gif" name="logo" id="logo" /> &nbsp;&nbsp;
+
+            <div id="login">
+            	<span>Hi 訪客&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="login.html">登入</a></span>
+            </div>
+            <div id="menu">
+                <ul>
+                   <li id='btn1'><a href="home.html"></a></li>
+                    <li id='btn2'><a href="viewpoint.jsp"></a></li>
+                    <li id='btn3'><a href="plan.jsp"></a></li>
+                    <li id='btn4'><a href="cust.jsp"></a></li>
+                    <li id='btn5'><a href="package.jsp"></a></li>
+                    <li id='btn6'><a href="#"></a></li>
+                </ul>  
+            </div>
+   	  	</div>
+	</div>
+
+    <div id="wrapper">
+        <div class="slider-wrapper theme-default">       
+            <div id="slider" class="nivoSlider">
+                <a href="http://localhost/home.html"><img src="images/banner/demo/1.jpg" data-thumb="images/banner/demo/1.jpg" alt="" title="" data-transition="" /></a>
+                <img src="images/banner/demo/2.jpg" data-thumb="images/banner/demo/2.jpg" alt="" data-transition="slideInLeft" />
+                <img src="images/banner/demo/3.jpg" data-thumb="images/banner/demo/3.jpg" alt="" data-transition="slideInLeft" />
+                <img src="images/banner/demo/4.jpg" data-thumb="images/banner/demo/4.jpg" alt="" data-transition="slideInRight" />
+                <img src="images/banner/demo/5.jpg" data-thumb="images/banner/demo/5.jpg" alt="" data-transition="" />
+                <img src="images/banner/demo/6.jpg" data-thumb="images/banner/demo/6.jpg" alt="" data-transition="" />
+                <img src="images/banner/demo/7.jpg" data-thumb="images/banner/demo/7.jpg" alt="" data-transition="" />
+                <img src="images/banner/demo/8.jpg" data-thumb="images/banner/demo/8.jpg" alt="" data-transition="" />
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <div id="news">
+            <h2 class="title">最新消息</h2>
+            <br />
+            
+          	<h3>公館水岸音樂秀 300秒煙火點亮水岸星空</h3>
+            <h3>七夕浪漫民俗盡在林安泰古厝「懷念古早味」特展</h3>
+            <h3>「2013臺北大稻埕音樂煙火節」精彩煙火</h3>
+            <h3>彩虹橋再添浪漫新造型 愛情愈夜愈美麗</h3>
+            <p class="more">more...</p>
+     </div>
+        
+        <div id="hot">
+            <h2 class="title">熱門景點</h2>
+            <br />
+            
+          	<h3>士林觀光夜市</h3>
+            <h3>五分埔-成衣街</h3>
+            <h3>生態臺北 - 草山生態時光隧道</h3>
+            <h3>林安泰古厝民俗文物館</h3>
+            <p class="more">more...</p>
+            
+        </div>
+    </div>
+
+    <div id="footer"> </div>
+<!--	
+    <div id="apDiv1">
+    	<iframe src="#" width="500" height="500" frameborder="5" id="show_func"></iframe>
+    </div>
+-->
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
+    <script type="text/javascript">
+		$(window).load(function() {
+			$('#slider').nivoSlider();
+		});
+    </script>
+</body>
+
+</html>

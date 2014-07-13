@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>燈箱測試</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/fb/jquery.mousewheel-3.0.6.pack.js"></script>
+<link rel="stylesheet" href="js/fb/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="js/fb/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="js/helpers/fb/jquery.fancybox-buttons.css" type="text/css" media="screen" />
+<script type="text/javascript" src="js/fb/helpers/jquery.fancybox-buttons.js"></script>
+<link rel="stylesheet" href="js/helpers/fb/jquery.fancybox-thumbs.css" type="text/css" media="screen" />
+<script type="text/javascript" src="js/fb/helpers/jquery.fancybox-thumbs.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+		$('.fancybox').fancybox();
+	});
+</script>
+
+
+<script type="text/javascript">
+$(function(){
+	
+    // 圖片說明在圖片之外，遮罩的速度0.5秒，透明度0.95幾乎不透明了。
+    $(".fancybox-effects-a").fancybox({
+        helpers: {
+            title : {
+                type : 'outside'
+            },
+            overlay : {
+                speedIn : 500,
+                opacity : 0.95
+            }
+        }
+    });
+ 
+    // 取消開啟與關閉圖片的動畫，圖片說明在圖片之上。
+    $(".fancybox-effects-b").fancybox({
+        openEffect  : 'none',
+        closeEffect : 'none',
+ 
+        helpers : {
+            title : {
+                type : 'over'
+            }
+        }
+    });
+ 
+    // 自訂css樣式，再點選一次就可以關閉圖片，白色的屏蔽，圖片說明在圖內。
+    $(".fancybox-effects-c").fancybox({
+        wrapCSS    : 'fancybox-custom',
+        closeClick : true,
+ 
+        helpers : {
+            title : {
+                type : 'inside'
+            },
+            overlay : {
+                css : {
+                    'background-color' : '#eee'
+                }
+            }
+        }
+    });
+ 
+    // 開啟與關閉圖片的動畫設定為elastic，沒有屏蔽效果
+    $(".fancybox-effects-d").fancybox({
+        padding: 0,
+ 
+        openEffect : 'elastic',
+        openSpeed  : 150,
+ 
+        closeEffect : 'elastic',
+        closeSpeed  : 150,
+ 
+        closeClick : true,
+ 
+        helpers : {
+            overlay : null
+        }
+    });
+ 
+});
+</script>
+</head>
+
+<body>
+<a class="fancybox" href="images/item/2.jpg" title="xxxxx">	
+	<img src="images/item/2.jpg" alt="" width="160">
+</a> 
+
+<hr />
+<a class="fancybox" rel="group" href="images/item/1.jpg" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"><img src="images/item/1.jpg" alt="" width="160"></a> 
+<a class="fancybox" rel="group" href="images/item/2.jpg" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"><img src="images/item/2.jpg" alt="" width="160"></a> 
+<a class="fancybox" rel="group" href="images/item/3.jpg" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"><img src="images/item/3.jpg" alt="" width="160"></a> 
+<a class="fancybox" rel="group" href="images/item/4.jpg" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"><img src="images/item/4.jpg" alt="" width="160"></a> 
+
+<hr />
+
+<a class="fancybox-effects-a" href="images/item/2.jpg" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"><img src="images/item/2.jpg" alt="" width="160"></a> 
+<a class="fancybox-effects-b" href="images/item/3.jpg" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"><img src="images/item/3.jpg" alt="" width="160"></a>
+<a class="fancybox-effects-c" href="images/item/4.jpg" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"><img src="images/item/4.jpg" alt="" width="160"></a>
+<a class="fancybox-effects-d" href="images/item/1.jpg" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"><img src="images/item/1.jpg" alt="" width="160"></a>
+
+
+
+<!--
+<a class="fancybox-effects-a" href="images/fancybox/5_b.jpg" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"><img src="images/fancybox/5_s.jpg" alt=""></a> 
+<a class="fancybox-effects-b" href="images/fancybox/5_b.jpg" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"><img src="images/fancybox/5_s.jpg" alt=""></a>
+<a class="fancybox-effects-c" href="images/fancybox/5_b.jpg" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"><img src="images/fancybox/5_s.jpg" alt=""></a>
+<a class="fancybox-effects-d" href="images/fancybox/5_b.jpg" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"><img src="images/fancybox/5_s.jpg" alt=""></a>
+
+-->
+
+</body>
+</html>

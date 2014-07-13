@@ -1,0 +1,239 @@
+<%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>gIRA Home</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection"/>
+    <link rel="stylesheet" type="text/css" href="css/easyui.css">
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+    <script type="text/javascript">
+		$(function(){
+			
+			$('.drag').draggable({
+				proxy:'clone',
+				revert:true,
+				cursor:'auto',
+				onStartDrag:function(){
+				//	$(this).draggable('options').cursor='not-allowed';
+				//	$(this).draggable('proxy').addClass('dp');
+				},
+				onStopDrag:function(){
+					$(this).draggable('options').cursor='auto';
+				}
+			});
+			$('#target').droppable({
+				// 依會員選擇條件帶入「景點編號」
+				accept:'#C1_379000000A_000033,#C1_379000000A_000041,#C1_379000000A_000049,#C1_379000000A_000086,#C1_379000000A_000089,#C1_379000000A_000092,#C1_379000000A_000129,#C1_379000000A_000153,#C1_379000000A_000157,#C1_379000000A_000182,#C1_379000000A_000194,#C1_379000000A_000228,#C1_379000000A_000268,#C1_379000000A_000304,#C1_379000000A_000409,#C1_379000000A_000669,#C1_379000000A_001380,#C1_379000000A_001422,#C1_379000000A_001432,#C1_379000000A_001502,#C1_379000000A_001597,#C1_A09000000E_000001,#C1_379000000A_000007,#C1_379000000A_000141,#C1_379000000A_000232,#C1_379000000A_000260,#C1_379000000A_000292,#C1_379000000A_000328,#C1_379000000A_000340,#C1_379000000A_000360,#C1_379000000A_000398,#C1_379000000A_000405,#C1_379000000A_000406,#C1_379000000A_000408,#C1_379000000A_001440,#C1_379000000A_000170,#C1_379000000A_000336,#C1_379000000A_000344,#C1_379000000A_000414,#C1_379000000A_000417,#C1_379000000A_000418,#C1_379000000A_000574,#C1_379000000A_001284,#C1_379000000A_001434,#C1_379000000A_001438,#C1_379000000A_001492,#C1_379000000A_000015,#C1_379000000A_000116,#C1_379000000A_000133,#C1_379000000A_000158,#C1_379000000A_000212,#C1_379000000A_000216,#C1_379000000A_000220,#C1_379000000A_000236,#C1_379000000A_000244,#C1_379000000A_000276,#C1_379000000A_000316,#C1_379000000A_000356,#C1_379000000A_000373,#C1_379000000A_000377,#C1_379000000A_000400,#C1_379000000A_000407,#C1_379000000A_000524,#C1_379000000A_000684,#C1_379000000A_000697,#C1_379000000A_001089,#C1_379000000A_001286,#C1_379000000A_001392,#C1_379000000A_001408,#C1_379000000A_001410,#C1_379000000A_001428,#C1_379000000A_001523,#C1_379000000A_001562,#C1_379000000A_001595,#C1_379000000A_000125,#C1_379000000A_000137,#C1_379000000A_000162,#C1_379000000A_000166,#C1_379000000A_000208,#C1_379000000A_000248,#C1_379000000A_000252,#C1_379000000A_000348,#C1_379000000A_000368,#C1_379000000A_000369,#C1_379000000A_000381,#C1_379000000A_000385,#C1_379000000A_000386,#C1_379000000A_000387,#C1_379000000A_000388,#C1_379000000A_000393,#C1_379000000A_000394,#C1_379000000A_000401,#C1_379000000A_000420,#C1_379000000A_000424,#C1_379000000A_000588,#C1_379000000A_000596,#C1_379000000A_000665,#C1_379000000A_001210,#C1_379000000A_001248,#C1_379000000A_001376,#C1_379000000A_001436,#C1_379000000A_001592,#C1_A25000000E_002253,#C1_A25000000E_003479,#C1_A25000000E_003495,#C1_379000000A_000284,#C1_379000000A_000520,#C1_379000000A_000527,#C1_379000000A_000533,#C1_379000000A_000537,#C1_379000000A_000642,#C1_379000000A_000646,#C1_379000000A_000651,#C1_379000000A_000655,#C1_379000000A_000699,#C1_379000000A_001414,#C1_379000000A_001416,#C1_379000000A_000025,#C1_379000000A_000272,#C1_379000000A_000324,#C1_379000000A_000332,#C1_379000000A_000553,#C1_379000000A_000557,#C1_379000000A_000561,#C1_379000000A_000689,#C1_379000000A_001250,#C1_379000000A_001498,#C1_379000000A_001500,#C1_379000000A_000011,#C1_379000000A_000029,#C1_379000000A_000057,#C1_379000000A_000061,#C1_379000000A_000067,#C1_379000000A_000070,#C1_379000000A_000074,#C1_379000000A_000078,#C1_379000000A_000082,#C1_379000000A_000120,#C1_379000000A_000124,#C1_379000000A_000145,#C1_379000000A_000190,#C1_379000000A_000199,#C1_379000000A_000205,#C1_379000000A_000264,#C1_379000000A_000280,#C1_379000000A_000320,#C1_379000000A_000399,#C1_379000000A_000578,#C1_379000000A_000584,#C1_379000000A_000660,#C1_379000000A_000676,#C1_379000000A_000685,#C1_379000000A_000693,#C1_379000000A_001378,#C1_379000000A_001504,#C1_379000000A_001519,#C1_379000000A_000174,#C1_379000000A_000300,#C1_379000000A_000415,#C1_379000000A_001430,#C1_379000000A_001496,#C1_379000000A_001506,#C1_379000000A_001525,#C1_379000000A_000112,#C1_379000000A_000186,#C1_379000000A_000198,#C1_379000000A_000541,#C1_379000000A_000547,#C1_379000000A_000550,#C1_379000000A_001090,#C1_379000000A_001412,#C1_379000000A_000288,#C1_379000000A_000296,#C1_379000000A_000308,#C1_379000000A_000312,#C1_379000000A_000352,#C1_379000000A_000364,#C1_379000000A_000432,#C1_379000000A_000682,#C1_379000000A_000683,#C1_379000000A_001382,#C1_379000000A_001426,#C1_379000000A_001521,#C1_379000000A_000224,#C1_379000000A_000256,#C1_379000000A_000530,#C1_379000000A_000544,#C1_379000000A_000698,#C1_379000000A_001560',
+				onDragEnter:function(e,source){
+					$(source).draggable('options').cursor='auto';
+					$(source).draggable('proxy').css('border','1px solid red');
+					$(this).addClass('over');
+				},
+				onDragLeave:function(e,source){
+					$(source).draggable('options').cursor='not-allowed';
+					$(source).draggable('proxy').css('border','1px solid #ccc');
+					$(this).removeClass('over');
+				},
+				onDrop:function(e,source){
+					$(this).append(source);
+					$(this).removeClass('over');
+				}
+			});
+			$('#source').droppable({
+				// 依會員選擇條件帶入「景點編號」
+				accept:'#C1_379000000A_000033,#C1_379000000A_000041,#C1_379000000A_000049,#C1_379000000A_000086,#C1_379000000A_000089,#C1_379000000A_000092,#C1_379000000A_000129,#C1_379000000A_000153,#C1_379000000A_000157,#C1_379000000A_000182,#C1_379000000A_000194,#C1_379000000A_000228,#C1_379000000A_000268,#C1_379000000A_000304,#C1_379000000A_000409,#C1_379000000A_000669,#C1_379000000A_001380,#C1_379000000A_001422,#C1_379000000A_001432,#C1_379000000A_001502,#C1_379000000A_001597,#C1_A09000000E_000001,#C1_379000000A_000007,#C1_379000000A_000141,#C1_379000000A_000232,#C1_379000000A_000260,#C1_379000000A_000292,#C1_379000000A_000328,#C1_379000000A_000340,#C1_379000000A_000360,#C1_379000000A_000398,#C1_379000000A_000405,#C1_379000000A_000406,#C1_379000000A_000408,#C1_379000000A_001440,#C1_379000000A_000170,#C1_379000000A_000336,#C1_379000000A_000344,#C1_379000000A_000414,#C1_379000000A_000417,#C1_379000000A_000418,#C1_379000000A_000574,#C1_379000000A_001284,#C1_379000000A_001434,#C1_379000000A_001438,#C1_379000000A_001492,#C1_379000000A_000015,#C1_379000000A_000116,#C1_379000000A_000133,#C1_379000000A_000158,#C1_379000000A_000212,#C1_379000000A_000216,#C1_379000000A_000220,#C1_379000000A_000236,#C1_379000000A_000244,#C1_379000000A_000276,#C1_379000000A_000316,#C1_379000000A_000356,#C1_379000000A_000373,#C1_379000000A_000377,#C1_379000000A_000400,#C1_379000000A_000407,#C1_379000000A_000524,#C1_379000000A_000684,#C1_379000000A_000697,#C1_379000000A_001089,#C1_379000000A_001286,#C1_379000000A_001392,#C1_379000000A_001408,#C1_379000000A_001410,#C1_379000000A_001428,#C1_379000000A_001523,#C1_379000000A_001562,#C1_379000000A_001595,#C1_379000000A_000125,#C1_379000000A_000137,#C1_379000000A_000162,#C1_379000000A_000166,#C1_379000000A_000208,#C1_379000000A_000248,#C1_379000000A_000252,#C1_379000000A_000348,#C1_379000000A_000368,#C1_379000000A_000369,#C1_379000000A_000381,#C1_379000000A_000385,#C1_379000000A_000386,#C1_379000000A_000387,#C1_379000000A_000388,#C1_379000000A_000393,#C1_379000000A_000394,#C1_379000000A_000401,#C1_379000000A_000420,#C1_379000000A_000424,#C1_379000000A_000588,#C1_379000000A_000596,#C1_379000000A_000665,#C1_379000000A_001210,#C1_379000000A_001248,#C1_379000000A_001376,#C1_379000000A_001436,#C1_379000000A_001592,#C1_A25000000E_002253,#C1_A25000000E_003479,#C1_A25000000E_003495,#C1_379000000A_000284,#C1_379000000A_000520,#C1_379000000A_000527,#C1_379000000A_000533,#C1_379000000A_000537,#C1_379000000A_000642,#C1_379000000A_000646,#C1_379000000A_000651,#C1_379000000A_000655,#C1_379000000A_000699,#C1_379000000A_001414,#C1_379000000A_001416,#C1_379000000A_000025,#C1_379000000A_000272,#C1_379000000A_000324,#C1_379000000A_000332,#C1_379000000A_000553,#C1_379000000A_000557,#C1_379000000A_000561,#C1_379000000A_000689,#C1_379000000A_001250,#C1_379000000A_001498,#C1_379000000A_001500,#C1_379000000A_000011,#C1_379000000A_000029,#C1_379000000A_000057,#C1_379000000A_000061,#C1_379000000A_000067,#C1_379000000A_000070,#C1_379000000A_000074,#C1_379000000A_000078,#C1_379000000A_000082,#C1_379000000A_000120,#C1_379000000A_000124,#C1_379000000A_000145,#C1_379000000A_000190,#C1_379000000A_000199,#C1_379000000A_000205,#C1_379000000A_000264,#C1_379000000A_000280,#C1_379000000A_000320,#C1_379000000A_000399,#C1_379000000A_000578,#C1_379000000A_000584,#C1_379000000A_000660,#C1_379000000A_000676,#C1_379000000A_000685,#C1_379000000A_000693,#C1_379000000A_001378,#C1_379000000A_001504,#C1_379000000A_001519,#C1_379000000A_000174,#C1_379000000A_000300,#C1_379000000A_000415,#C1_379000000A_001430,#C1_379000000A_001496,#C1_379000000A_001506,#C1_379000000A_001525,#C1_379000000A_000112,#C1_379000000A_000186,#C1_379000000A_000198,#C1_379000000A_000541,#C1_379000000A_000547,#C1_379000000A_000550,#C1_379000000A_001090,#C1_379000000A_001412,#C1_379000000A_000288,#C1_379000000A_000296,#C1_379000000A_000308,#C1_379000000A_000312,#C1_379000000A_000352,#C1_379000000A_000364,#C1_379000000A_000432,#C1_379000000A_000682,#C1_379000000A_000683,#C1_379000000A_001382,#C1_379000000A_001426,#C1_379000000A_001521,#C1_379000000A_000224,#C1_379000000A_000256,#C1_379000000A_000530,#C1_379000000A_000544,#C1_379000000A_000698,#C1_379000000A_001560',
+				onDragEnter:function(e,source){
+					$(source).draggable('options').cursor='auto';
+					$(source).draggable('proxy').css('border','1px solid red');
+					$(this).addClass('over');
+				},
+				onDragLeave:function(e,source){
+					$(source).draggable('options').cursor='not-allowed';
+					$(source).draggable('proxy').css('border','1px solid #ccc');
+					$(this).removeClass('over');
+				},
+				onDrop:function(e,source){
+					$(this).append(source)
+					$(this).removeClass('over');
+				}
+			});
+			// 景點排序；依目前畫面順序
+//			$('#vp').click(function(){				
+//				var vp='';
+//				$('#target div.drag').map(function() {
+//					vp += this.id+', ';
+//					return vp;
+//				});		
+//				alert('景點排序: '+vp);
+//			});
+			
+			$('#showmap').hover(function(){
+				$(this).attr('src','images/btn/btn7_on.png');
+				$(this).click(function(){
+					
+					 showMap();
+					
+				});
+			}, function(){
+				$(this).attr('src','images/btn/btn7.png');
+			});
+			
+			$('#doSearch').hover(function(){
+				$(this).attr('src','images/btn/btn8_on.png');
+			}, function(){
+				$(this).attr('src','images/btn/btn8.png');
+			});
+		
+			$('#package').focus(function(){
+				$(this).attr('value','');
+			});
+			
+			$('#vp_list').hover(function(){
+				$(this).attr('src','images/btn/btn9_on.png');
+				$(this).click(function(){
+					var vp='';
+					var package='';
+					package = $('#package').val();
+					$('#target div.drag').map(function() {
+						vp += this.id+', ';
+						return vp;
+					});
+					$('#vp').val(vp);
+					//alert('景點名稱: '+package+'<br>'+'景點排序: '+vp);
+				});
+			}, function(){
+				$(this).attr('src','images/btn/btn9.png');
+			});
+				
+						
+		//			$('#login_func').click(function(e) {
+		// 				$('#apDiv1').css('visibility','visible');
+		//          });
+		
+			$("li a").click(function(){
+				$("li a").removeClass("active");
+				$(this).toggleClass("active");
+			});
+		
+			$("li a").click(function(){
+				$("li a").css("color","#666");
+				$("li a.active").css("color","white");
+			});
+		
+			$("li a").hover(function(){
+					$("li a.active").css("color","white");
+					$(this).css("color","black");
+				},function(){
+					$(this).css("color","#666");
+					$("li a.active").css("color","white");
+			})
+		
+		});
+    
+    </script>
+
+<script type="text/javascript" src="js/fb/jquery.mousewheel-3.0.6.pack.js"></script>
+<link rel="stylesheet" href="js/fb/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="js/fb/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="js/helpers/fb/jquery.fancybox-buttons.css" type="text/css" media="screen" />
+<script type="text/javascript" src="js/fb/helpers/jquery.fancybox-buttons.js"></script>
+<link rel="stylesheet" href="js/helpers/fb/jquery.fancybox-thumbs.css" type="text/css" media="screen" />
+<script type="text/javascript" src="js/fb/helpers/jquery.fancybox-thumbs.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+		$('.fancybox').fancybox();
+	});
+</script>
+</head>
+
+<body>
+	<!--<div class="result"></div>-->
+	<div id="header-wrapper">
+    	<div id="title">
+            <img src="images/Logo-02.gif" name="logo" id="logo" /> &nbsp;&nbsp;
+
+            <div id="login">
+            	<span> 嗨!Bob 歡迎來到Gira旅遊網
+	<form method="post" action="Logout">
+		<input type="submit" value="登出" name="Logout"></span>
+            </form></div>
+            <div id="menu">
+                <ul>
+                     <li id='btn1'><a href="home.html"></a></li>
+                    <li id='btn2'><a href="viewpoint.jsp"></a></li>
+                    <li id='btn3'><a href="plan.jsp"></a></li>
+                    <li id='btn4'><a href="cust.jsp"></a></li>
+                    <li id='btn5'><a href="package.jsp"></a></li>
+                    <li id='btn6'><a href="#"></a></li>
+                </ul>  
+            </div>
+   	  	</div>
+	</div>
+  
+	<div id="page-wrap">
+   	  	<div id='sel_viewpoint'>
+            <div class="lp">
+            	<form name="form1" action="Controller" method="post">
+                  	<select name="area" class="seldata">
+                                <option value="null">::請選擇區域::</option>
+                                <option value="士林區">士林區</option>
+                                <option value="大同區">大同區</option>
+                                <option value="大安區">大安區</option>
+                                <option value="中山區">中山區</option>
+                                <option value="中正區">中正區</option>
+                                <option value="內湖區">內湖區</option>
+                                <option value="文山區">文山區</option>
+                                <option value="北投區">北投區</option>
+                                <option value="松山區">松山區</option>
+                                <option value="信義區">信義區</option>
+                                <option value="南港區">南港區</option>
+                                <option value="萬華區">萬華區</option>
+                  	</select>
+                  	<input name="desMatch" type="text" class="setdata" value="" size="30" />
+                  	<button type="submit" class="btn1"><img id="doSearch"src="images/btn/btn8.png" /></button>
+              	</form>
+            </div>
+            <img id="showmap" src="images/btn/btn7.png" class="btn2" />
+            <!--<div class="lp">
+                <form name="form2" action="Controller1" method="post">
+                	<input id="package" name="package" type="text" class="setdata" value="請輸入行程名稱..." size="45" />
+                    <img id="vp_list" src="images/btn/btn9.png" class="btn" />
+            	</form>
+            </div>-->
+    	</div> 
+    </div>
+	
+	<div id="content">	</div>
+        
+  	<div id="google_map">
+		<iframe name="show_vp" width="966" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=""></iframe>
+    </div>
+    
+    <!-- 景點購物車操作區塊 -->               
+    <div id="cart">
+       	<!-- 依會員選擇條件帶入「景點項目」 -->
+        <div id="source"> </div>
+            
+   		<div id="plan">
+        	<!-- 依會員輸入帶入「行程名稱」 -->
+<!--       	  	<div id="plan_title">
+                    <h2>行程名稱：台北一日遊</h2>
+                 </div>-->
+        	<!-- 景點購物車 -->
+            <div id="target"> </div>
+        </div>
+            
+    </div>
+    
+    <div id="footer"> </div>
+<!--	
+    <div id="apDiv1">
+    	<iframe src="#" width="500" height="500" frameborder="5" id="show_func"></iframe>
+    </div>
+-->
+</body>
+
+</html>

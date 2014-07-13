@@ -1,0 +1,697 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>li JQuery Image Slider</title>
+<link rel="stylesheet" type="text/css" href="media/skin1/li-baner.css" />
+<link rel="stylesheet" type="text/css" href="main.css" />
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/li-slider-animations-1.0.min.js"></script>
+<script type="text/javascript" src="js/li-slider-1.0.min.js"></script>
+<script type="text/javascript" src="js/transitions.min.js"></script>
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/helvetica-ultra-light_400.font.js"></script>
+<script type="text/javascript">
+	Cufon.replace('h1'); // Works without a selector engine
+	Cufon.replace('h2'); // Works without a selector engine
+	Cufon.replace('#sub1'); // Requires a selector engine for IE 6-7, see above
+</script>
+</head>
+<body>
+<div id="wrapper">
+<div id="social_icons"></div>
+<div id="header">
+  <div id="m-banner" class="li-banner" style="width:824px; height:418px;">
+    <ul>
+      <li><img src="assets/pic1.jpg" alt="Pic 1" /></li>
+      <li><img src="assets/pic2.jpg" alt="Pic 2" /></li>
+      <li><img src="assets/pic3.jpg" alt="Pic 3" /></li>
+      <li><img src="assets/pic4.jpg" alt="Pic 1" /></li>
+      <li><img src="assets/pic5.jpg" alt="Pic 2" /></li>
+    </ul>
+  </div>
+</div>
+<div id="content">
+  <div id="navigation">
+  <a name="scroll_to" href="index.html">Home</a> <a href="examples.html">Examples/Skins</a> <a href="ad-demos.html">Ad Banner Demos</a> <a href="transitions.html">Transitions/Effects</a>
+  </div>
+  <h1>Transitions/Effects</h1>
+    <p>liJQuery Slider includes <strong>66 basic transitions</strong>. Each transition has its own options which allows you to built <strong>ULIMITED</strong> variations. Additionallly to this you can use all the transitions in the banner or only certain. You can tell the liJQuery Slider how to play them - in <strong>order</strong> or <strong>random</strong>.</p>
+  <div>
+   <ul class="transformations">
+  	<li id="Basic"><a>Basic</a></li>
+    <li id="Curtain"><a>Curtain</a></li>
+    <li id="Shrink"><a>Shrink</a></li>
+    <li id="Replace"><a>Push</a></li>
+    <li id="Sectors_2"><a>2 Sectors</a></li>
+    <li id="Sectors_4"><a>4 Sectors</a></li>
+    <li id="Blind"><a>Blind</a></li>
+	<li id="Squares" ><a>Squares</a></li>
+    <li id="Pages"><a>Pages</a></li>
+   </ul>
+   </div>
+   <h2>Basic</h2>
+
+  <div id="" class="Transitions Basic" style="display: none;" >
+    <ul class="transitions_ul">
+      <li>None<br />
+        <br />
+        <div id="m_banner_None" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Fade<br />
+        <br />
+        <div id="m-banner-Fade" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Slide-Left<br />
+        <br />
+        <div id="m-banner-Slide-Left" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Slide-Right<br />
+        <br />
+        <div id="m-banner-Slide-Right" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Slide-Down<br />
+        <br />
+        <div id="m-banner-Slide-Down" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Slide-Up<br />
+        <br />
+        <div id="m-banner-Slide-Up" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="" class="Transitions Curtain" style="display:none;">
+    <ul class="transitions_ul">
+      <li>Curtain-Cl<br />
+        <br />
+        <div id="m-banner-Curtain-Cl" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Curtain-Cl-Bou<br />
+        <br />
+        <div id="m-banner-Curtain-Cl-Bou" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Curtain-Cl-Ran-Bou<br />
+        <br />
+        <div id="m-banner-Curtain-Cl-Ran-Bou" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Curtain-Op<br />
+        <br />
+        <div id="m-banner-Curtain-Op" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Curtain-Op-Bou<br />
+        <br />
+        <div id="m-banner-Curtain-Op-Bou" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Curtain-Op-Ran-Bou<br />
+        <br />
+        <div id="m-banner-Curtain-Op-Ran-Bou" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Curtain-V-Cl<br />
+        <br />
+        <div id="m-banner-Curtain-V-Cl" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Curtain-V-Cl-Bou<br />
+        <br />
+        <div id="m-banner-Curtain-V-Cl-Bou" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Curtain-V-Cl-Ran-Bou<br />
+        <br />
+        <div id="m-banner-Curtain-V-Cl-Ran-Bou" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Curtain-V-Op<br />
+        <br />
+        <div id="m-banner-Curtain-V-Op" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Curtain-V-Op-Bou<br />
+        <br />
+        <div id="m-banner-Curtain-V-Op-Bou" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Curtain-V-Op-Ran-Bou<br />
+        <br />
+        <div id="m-banner-Curtain-V-Op-Ran-Bou" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="" class="Transitions Shrink" style="display:none">
+    <ul class="transitions_ul">      
+      <li>Shrink-Left-Bottom<br />
+        <br />
+        <div id="m-banner-Shrink-Left-Bottom" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Shrink-Left-Top<br />
+        <br />
+        <div id="m-banner-Shrink-Left-Top" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Shrink-Right-Bottom<br />
+        <br />
+        <div id="m-banner-Shrink-Right-Bottom" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Shrink-Right-Top<br />
+        <br />
+        <div id="m-banner-Shrink-Right-Top" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Shrink-Center<br />
+        <br />
+        <div id="m-banner-Shrink-Center" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Shrink-Center-Bounce<br />
+        <br />
+        <div id="m-banner-Shrink-Center-Bounce" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Srink-Random-Bounce<br />
+        <br />
+        <div id="m-banner-Srink-Random-Bounce" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div id="" class="Transitions Replace" style="display:none">
+    <ul class="transitions_ul">
+      <li>Push-Right<br />
+        <br />
+        <div id="m-banner-Push-Right" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Push-Left<br />
+        <br />
+        <div id="m-banner-Push-Left" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Push-Up<br />
+        <br />
+        <div id="m-banner-Push-Up" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Push-Down<br />
+        <br />
+        <div id="m-banner-Push-Down" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="" class="Transitions Sectors_2" style="display:none">
+    <ul class="transitions_ul">
+      <li>Close-Center<br />
+        <br />
+        <div id="m-banner-Close-Center" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Open-Center<br />
+        <br />
+        <div id="m-banner-Open-Center" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>2-Close-Bounce<br />
+        <br />
+        <div id="m-banner-2-Close-Bounce" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>2-Shrink-Bounce<br />
+        <br />
+        <div id="m-banner-2-Shrink-Bounce" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>2-Shrink-Top-Bottom<br />
+        <br />
+        <div id="m-banner-2-Shrink-Top-Bottom" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="" class="Transitions Sectors_4" style="display:none;">
+    <ul class="transitions_ul">
+      <li>4-Shrink-Close<br />
+        <br />
+        <div id="m-banner-4-Shrink-Close" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>4-Close<br />
+        <br />
+        <div id="m-banner-4-Close" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>4-Open<br />
+        <br />
+        <div id="m-banner-4-Open" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>4-Close-Delay<br />
+        <br />
+        <div id="m-banner-4-Close-Delay" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>4-Open-Delay<br />
+        <br />
+        <div id="m-banner-4-Open-Delay" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>4-Close-Shift<br />
+        <br />
+        <div id="m-banner-4-Close-Shift" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>4-Open-Shift<br />
+        <br />
+        <div id="m-banner-4-Open-Shift" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>4-Cross<br />
+        <br />
+        <div id="m-banner-4-Cross" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="" class="Transitions Blind" style="display: none;">
+    <ul class="transitions_ul">
+      <li>Blind-Right<br />
+        <br />
+        <div id="m-banner-Blind-Right" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Blind-Right-All<br />
+        <br />
+        <div id="m-banner-Blind-Right-All" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Blind-Right-Wave<br />
+        <br />
+        <div id="m-banner-Blind-Right-Wave" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Blind-Right-Wave-Full<br />
+        <br />
+        <div id="m-banner-Blind-Right-Wave-Full" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Blind-Right-Fade<br />
+        <br />
+        <div id="m-banner-Blind-Right-Fade" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Blind-Down-Right<br />
+        <br />
+        <div id="m-banner-Blind-Down-Right" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Blind-Down-Center<br />
+        <br />
+        <div id="m-banner-Blind-Down-Center" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Blind-Down-Random<br />
+        <br />
+        <div id="m-banner-Blind-Down-Random" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Blind-Down-Up<br />
+        <br />
+        <div id="m-banner-Blind-Down-Up" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Blind-Down-Up-Fade<br />
+        <br />
+        <div id="m-banner-Blind-Down-Up-Fade" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Blind-Down-Up-Bounce<br />
+        <br />
+        <div id="m-banner-Blind-Down-Up-Bounce" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Blind-Down-Up-Wave<br />
+        <br />
+        <div id="m-banner-Blind-Down-Up-Wave" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="" class="Transitions Squares" style="display: none;">
+    <ul class="transitions_ul">
+      <li>Line-Down<br />
+        <br />
+        <div id="m-banner-Line-Down" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Sqr-Down<br />
+        <br />
+        <div id="m-banner-Sqr-Down" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Line-Down-Reverse<br />
+        <br />
+        <div id="m-banner-Line-Down-Reverse" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Sqr-Down-Expand<br />
+        <br />
+        <div id="m-banner-Sqr-Down-Expand" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Sqr-Expand<br />
+        <br />
+        <div id="m-banner-Sqr-Expand" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Sqr-Fade<br />
+        <br />
+        <div id="m-banner-Sqr-Fade" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Sqr-Fade-Down<br />
+        <br />
+        <div id="m-banner-Sqr-Fade-Down" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Sqr-Random<br />
+        <br />
+        <div id="m-banner-Sqr-Random" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <br />
+  </div>
+  <div id="" class="Transitions Pages" style="display: none;">
+    <ul class="transitions_ul">
+      <li>Slide-Back-Right<br />
+        <br />
+        <div id="m-banner-Slide-Back-Right" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Slide-Back-Left<br />
+        <br />
+        <div id="m-banner-Slide-Back-Left" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Slide-Back-Up<br />
+        <br />
+        <div id="m-banner-Slide-Back-Up" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+      <li>Slide-Back-Down<br />
+        <br />
+        <div id="m-banner-Slide-Back-Down" class="li-banner" style="width:125px; height:125px;">
+          <ul>
+            <li><img src="assets/bright_slide.gif" alt="Pic 1" /></li>
+            <li><img src="assets/dark_slide.gif" alt="Pic 2" /></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <br />
+  </div>
+
+<br />
+<br /><br />
+<br /><br />
+<br />
+
+</div>
+</body>
+</html>
